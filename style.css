@@ -1,0 +1,19 @@
+header{
+    padding: 50px;
+    text-align: center;
+    background-color: #E9ECEF;
+}
+.main{
+    max-width: 1300px;
+    margin: auto;
+}
+
+#card-container{
+    margin-top: 2rem;    
+    background-color: gray;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}

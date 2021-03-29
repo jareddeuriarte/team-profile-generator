@@ -2,6 +2,73 @@ const inquirer = require('inquirer');
 const fs = require("fs");
 const generateMarkdown = require("/utils/generateProfile.js");
 
+class Employee {
+    constructor(name, id, email,) {
+        this.name = name;
+        this.id = id;
+        this.email = email;
+    }
+
+    getName() {
+    }
+
+    getId() {
+    }
+
+    getEmail() {
+    }
+
+    getRole() {
+        return 'Employee'
+    }
+
+}
+
+class Manager extends Employee {
+    constructor(name, id, email, officeNumber) {
+        super(name, id, email);
+        this.officeNumber = this.officeNumber
+    }
+
+    getRole() {
+        return 'Manager'
+    }
+
+}
+
+class Engineer extends Employee {
+    constructor(name, id, email, gitHub) {
+        super(name, id, email);
+        this.gitHub = gitHub
+    }
+
+    getGitHub(){
+    }
+
+    getRole(){
+        return 'Engineer'
+    }
+}
+
+class Intern extends Employee{
+    constructor(name, id, email, school) {
+        super(name, id, email);
+        this.school = school
+    }
+
+    getSchool(){    
+    }
+
+    getRole(){
+        return 'Intern'
+    }
+
+}
+
+
+
+
+
 
 
 // GIVEN a command-line application that accepts user input
