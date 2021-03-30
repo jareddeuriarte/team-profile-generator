@@ -1,83 +1,91 @@
 const inquirer = require('inquirer');
 const fs = require("fs");
-const generateMarkdown = require("/utils/generateProfile.js");
 
-class Employee {
-    constructor(name, id, email,) {
-        this.name = name;
-        this.id = id;
-        this.email = email;
+
+const employeeQuestions = [
+    {
+        type: 'input',
+        message: 'Enter employee name.',
+        name: "employeeName",
+    },
+
+    {
+        type: 'input',
+        message: 'Enter employee ID.',
+        name: 'employeeId',
+
+    },
+    {
+        type: 'input',
+        message: 'Enter employee email.',
+        name: 'email',
+    },
+    {
+        type: 'list',
+        message: 'Select employee title',
+        choices: ['Manager', 'Engineer', 'Intern'],
+        name: 'title',
+
     }
+]
 
-    getName() {
+const managerQuestions = [
+    {
+        type: 'intput',
+        message: 'Enter office number',
+        name: 'officeNumber',
     }
+]
 
-    getId() {
+const engineerQuestions = [
+    {
+        type: 'intput',
+        message: 'Enter GitHub username',
+        name: 'gitHub',
     }
+]
 
-    getEmail() {
+const internQuestions = [
+    {
+        type: 'intput',
+        message: 'Enter school affiliation.',
+        name: 'school',
     }
+]
 
-    getRole() {
-        return 'Employee'
-    }
+function init() {
+    inquirer.prompt(employeeQuestions)
+        .then(response => {
+            console.log(response)
+            if (response.title == 'Manager')
+            {
+                inquirer.prompt(managerQuestions)
+                    .then(response => {
+                        console.log(response)
+                    })
+            } 
+            else if (response.title == 'Engineer')
+            {
+                inquirer.prompt(engineerQuestions)
+                    .then(response => {
+                        console.log(response)
+                    })
+            } 
+            else (repsonse.title === 'Intern');
+            {
+                inquirer.prompt(internQuestions)
+                .then(response => {
+                    console.log(response)
+                })
+            }
 
+        })
 }
 
-class Manager extends Employee {
-    constructor(name, id, email, officeNumber) {
-        super(name, id, email);
-        this.officeNumber = this.officeNumber
-    }
-
-    getRole() {
-        return 'Manager'
-    }
-
-}
-
-class Engineer extends Employee {
-    constructor(name, id, email, gitHub) {
-        super(name, id, email);
-        this.gitHub = gitHub
-    }
-
-    getGitHub(){
-    }
-
-    getRole(){
-        return 'Engineer'
-    }
-}
-
-class Intern extends Employee{
-    constructor(name, id, email, school) {
-        super(name, id, email);
-        this.school = school
-    }
-
-    getSchool(){    
-    }
-
-    getRole(){
-        return 'Intern'
-    }
-
-}
+init();
 
 
 
-
-
-
-
-// GIVEN a command-line application that accepts user input
-// WHEN I am prompted for my team members and their information
-// THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-// WHEN I click on an email address in the HTML
-// THEN my default email program opens and populates the TO field of the email with the address
-// WHEN I click on the GitHub username
-// THEN that GitHub profile opens in a new tab
 // WHEN I start the application
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
 // WHEN I enter the team manager’s name, employee ID, email address, and office number
@@ -88,3 +96,13 @@ class Intern extends Employee{
 // THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
 // WHEN I decide to finish building my team
 // THEN I exit the application, and the HTML is generated
+
+
+// GIVEN a command-line application that accepts user input
+// WHEN I am prompted for my team members and their information
+// THEN an HTML file is generated that displays a nicely formatted team roster based on user input
+// WHEN I click on an email address in the HTML
+// THEN my default email program opens and populates the TO field of the email with the address
+// WHEN I click on the GitHub username
+// THEN that GitHub profile opens in a new tab
+//
