@@ -6,10 +6,8 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const Manager = require('./lib/managerClass')
 const Engineer = require('./lib/engineerClass')
 const Intern = require('./lib/internClass')
-
 const allTeam = []
-const helper = require('./src/helper.js')
-
+const helper = require('./src/helper')
 
 const employeeQuestions = [
     {
@@ -143,6 +141,7 @@ function addAnother(response) {
     }
     else {
         console.log('No new emplpoyees to add.')
+        generateHTML();
     }
 }
 
@@ -154,4 +153,3 @@ function generateHTML() {
     })
 }
 
-generateHTML();
