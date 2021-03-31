@@ -23,7 +23,8 @@ console.log('Getting all the members, and putting them in allTeam variable',allT
                 <li class="list-group-item">Office: ${manager.getOfficeNumber()}</li>
             </ul>
         </div>
-    </div>`
+    </div>
+    `
     }
 
     // Creating Engineer Card
@@ -39,7 +40,7 @@ console.log('Getting all the members, and putting them in allTeam variable',allT
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${engineer.getId()}</li>
                 <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                <li class="list-group-item">Github: <a href="${engineer.getGitHub()}">${engineer.getGitHub()}</a></li>
+                <li class="list-group-item">Github: <a target="_blank" rel="noopener noreferrer" href="https://github.com/${engineer.getGitHub()}">${engineer.getGitHub()}</a></li>
             </ul>
         </div>
     </div>`
@@ -128,8 +129,6 @@ module.exports = allTeam => {
     </body>
     
     </html>
-            
-            
-            
+      
     `;
 }
