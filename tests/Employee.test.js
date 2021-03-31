@@ -3,7 +3,7 @@ const Employee = require('../lib/employeeClass')
 
 describe("Employee", () => {
     describe("Initialization", () => {
-      it('should judge if employee name is defined', () => {
+      it('should judge if employee name, id, and email are defined', () => {
         const obj = new Employee('Jared','11','jared@test.com')
         
         expect("name" in obj).toBeDefined();
@@ -12,7 +12,6 @@ describe("Employee", () => {
 
       });
   
-
       it('should return the employee role', () => {
           const obj = new Employee
 
