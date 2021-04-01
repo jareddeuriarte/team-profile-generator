@@ -72,6 +72,7 @@ console.log('Getting all the members, and putting them in allTeam variable',allT
         .filter(teamMember => teamMember.getRole() === "Manager")
         //create manager card by passing information
         .map(manager => generateManager(manager))
+        .join("")
     )
     console.log(indexHTML); 
     indexHTML.push(allTeam
@@ -79,6 +80,7 @@ console.log('Getting all the members, and putting them in allTeam variable',allT
         .filter(teamMember => teamMember.getRole() === "Engineer")
         //create engineer card by passing information
         .map(engineer => generateEngineer(engineer))
+        .join("")
     )
     console.log(indexHTML); 
     indexHTML.push(allTeam
@@ -86,10 +88,12 @@ console.log('Getting all the members, and putting them in allTeam variable',allT
         .filter(teamMember => teamMember.getRole() === "Intern")
         //create intern card by passing information
         .map(intern => generateIntern(intern))
+        .join("")
     )
-    console.log(indexHTML); 
-
-    return indexHTML.join("");
+    console.log(indexHTML);
+     
+    
+    return indexHTML.join('');
 }
 
 module.exports = allTeam => {

@@ -13,25 +13,25 @@ const employeeQuestions = [
     {
         type: 'input',
         message: 'Enter employee name.',
-        name: "employeeName",
+        name: "employeeName"
     },
 
     {
         type: 'input',
         message: 'Enter employee ID.',
-        name: 'employeeId',
+        name: 'employeeId'
 
     },
     {
         type: 'input',
         message: 'Enter employee email.',
-        name: 'email',
+        name: 'email'
     },
     {
         type: 'list',
         message: 'Select employee title',
         choices: ['Manager', 'Engineer', 'Intern'],
-        name: 'title',
+        name: 'title'
 
     }
 ]
@@ -40,13 +40,13 @@ const managerQuestions = [
     {
         type: 'input',
         message: 'Enter office number',
-        name: 'officeNumber',
+        name: 'officeNumber'
     },
     {
         type: 'list',
         message: 'Would you like to add another employee?',
         choices: ['Yes', 'No'],
-        name: 'addAnother',
+        name: 'addAnother'
 
     }
 ]
@@ -55,14 +55,14 @@ const engineerQuestions = [
     {
         type: 'input',
         message: 'Enter GitHub username',
-        name: 'gitHub',
+        name: 'gitHub'
 
     },
     {
         type: 'list',
         message: 'Would you like to add another employee?',
         choices: ['Yes', 'No'],
-        name: 'addAnother',
+        name: 'addAnother'
 
     }
 ]
@@ -149,6 +149,7 @@ function addAnother(response) {
 function generateHTML() {
     fs.writeFile(outputPath, helper(allTeam), (err) => {
         if (err) throw err; 
+        console.log(allTeam)
         console.log("Created HTML Successfully"); 
     })
 }
