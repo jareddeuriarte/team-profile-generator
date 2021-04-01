@@ -5,7 +5,7 @@ const Employee = require('../lib/employeeClass')
 
 
 const generateProfile = allTeam => {
-console.log('Getting all the members, and putting them in allTeam variable',allTeam)
+// console.log('Getting all the members, and putting them in allTeam variable',allTeam)
 
     // Creating Manager Card
 
@@ -74,7 +74,7 @@ console.log('Getting all the members, and putting them in allTeam variable',allT
         .map(manager => generateManager(manager))
         .join("")
     )
-    console.log(indexHTML); 
+    // console.log(indexHTML); 
     indexHTML.push(allTeam
         //filter out only engineer
         .filter(teamMember => teamMember.getRole() === "Engineer")
@@ -82,7 +82,7 @@ console.log('Getting all the members, and putting them in allTeam variable',allT
         .map(engineer => generateEngineer(engineer))
         .join("")
     )
-    console.log(indexHTML); 
+    // console.log(indexHTML); 
     indexHTML.push(allTeam
         //filter out only intern
         .filter(teamMember => teamMember.getRole() === "Intern")
@@ -90,7 +90,7 @@ console.log('Getting all the members, and putting them in allTeam variable',allT
         .map(intern => generateIntern(intern))
         .join("")
     )
-    console.log(indexHTML);
+    // console.log(indexHTML);
      
     
     return indexHTML.join('');

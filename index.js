@@ -85,17 +85,17 @@ const internQuestions = [
 function init() {
     inquirer.prompt(employeeQuestions)
         .then(responseEmployee => {
-            console.log(responseEmployee)
+            // console.log(responseEmployee)
             if (responseEmployee.title == 'Manager') {
                 inquirer.prompt(managerQuestions)
                     .then(response => {
-                        console.log(response)
+                        // console.log(response)
                         //Creating a manager object using the manager class 
                         const manager = new Manager(responseEmployee.employeeName, responseEmployee.employeeId, responseEmployee.email, response.officeNumber)
-                        console.log("Manager Obj Info:", manager)
+                        // console.log("Manager Obj Info:", manager)
                         //adding the employee to the allTeam array 
                         allTeam.push(manager)
-                        console.log("All team members", allTeam)
+                        // console.log("All team members", allTeam)
                         //Asking if i need to add new member 
                         addAnother(response.addAnother);
                     })
@@ -103,26 +103,26 @@ function init() {
             else if (responseEmployee.title == 'Engineer') {
                 inquirer.prompt(engineerQuestions)
                     .then(response => {
-                        console.log(response)
+                        // console.log(response)
                         //Creating an engineer object from engineer class
                         const engineer = new Engineer(responseEmployee.employeeName, responseEmployee.employeeId, responseEmployee.email, response.gitHub)
-                        console.log('Engineer Obj Info:', engineer)
+                        // console.log('Engineer Obj Info:', engineer)
                         //Adding the employee to the allTeam array
                         allTeam.push(engineer)
-                        console.log("All team members", allTeam)
+                        // console.log("All team members", allTeam)
                         addAnother(response.addAnother);
                     })
             }
             else {
                 inquirer.prompt(internQuestions)
                     .then(response => {
-                        console.log(response)
+                        // console.log(response)
                         // Creating intern object from Intern class
                         const intern = new Intern (responseEmployee.employeeName, responseEmployee.employeeId, responseEmployee.email, response.school)
-                        console.log('Intern Obj Info:', intern)
+                        // console.log('Intern Obj Info:', intern)
                         //Adding the employee to the allTeam array
                         allTeam.push(intern)
-                        console.log("All team members", allTeam)
+                        // console.log("All team members", allTeam)
                         addAnother(response.addAnother);
                     })
 
@@ -149,7 +149,7 @@ function addAnother(response) {
 function generateHTML() {
     fs.writeFile(outputPath, helper(allTeam), (err) => {
         if (err) throw err; 
-        console.log(allTeam)
+        // console.log(allTeam)
         console.log("Created HTML Successfully"); 
     })
 }
